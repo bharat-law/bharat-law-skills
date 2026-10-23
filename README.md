@@ -2,7 +2,7 @@
 
 Use your Bharat Law account in Claude to check Indian legal answers, examine citations, and find recorded court hearings. This plugin bundles three skills with the remote [Bharat Law MCP connector](https://api.bharat.law/mcp).
 
-Version 0.1.0 is a publication candidate. Creating this local package does not publish a GitHub repository or a Claude directory listing.
+Version 0.1.1 is a publication candidate. Creating this local package does not publish a GitHub repository or a Claude directory listing.
 
 ## Included skills
 
