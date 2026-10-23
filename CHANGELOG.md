@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 — 2026-10-23
+
+- Set explicit documentation, support, and service-terms links for the Claude directory listing.
+
 ## 0.1.0 — 2026-10-23
 
 - Add the Bharat Law remote MCP configuration.

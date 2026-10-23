@@ -76,7 +76,7 @@ Review company contact/ownership fields and data-handling answers personally. Le
 
 Create a separate **Plugin bundle** submission in the same Claude organization. Connect the GitHub account with push access, select `bharat-law/bharat-law-skills`, and track the protected `release` branch. Validate the plugin in Claude's portal, then pair it with the connector using their identical server URL.
 
-The package version is `0.1.0`. It includes three skills: Indian legal-answer verification, citation checking, and recorded next-hearing lookup. Latest-order retrieval remains deferred. Hosted Claude is the initial authentication target; do not claim tested Claude Code authentication.
+The package version is `0.1.1`. It includes three skills: Indian legal-answer verification, citation checking, and recorded next-hearing lookup. Latest-order retrieval remains deferred. Hosted Claude is the initial authentication target; do not claim tested Claude Code authentication.
 
 Resolve validation findings, review both final previews, and submit deliberately. Company-account access, reviewer credentials, real live tests, portal validation, and final attestations are operator steps; this package does not assert they are complete.
 

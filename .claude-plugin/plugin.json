@@ -1,7 +1,7 @@
 {
   "name": "bharat-law",
   "displayName": "Bharat Law",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Verify Indian legal answers and citations, and check recorded court hearings through your Bharat Law account.",
   "author": {
     "name": "Bharat Technologies, Inc.",
@@ -11,5 +11,14 @@
   "privacyPolicyUrl": "https://bharat.law/legal/privacy-policy",
   "repository": "https://github.com/bharat-law/bharat-law-skills",
   "license": "MIT",
-  "keywords": ["indian-law", "legal-research", "citations", "court-hearings", "mcp"]
+  "keywords": [
+    "indian-law",
+    "legal-research",
+    "citations",
+    "court-hearings",
+    "mcp"
+  ],
+  "supportUrl": "mailto:support@bharat.law",
+  "documentationUrl": "https://github.com/bharat-law/bharat-law-skills/blob/release/docs/setup.md",
+  "termsOfServiceUrl": "https://bharat.law/legal/evaluation-terms"
 }
