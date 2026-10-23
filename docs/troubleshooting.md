@@ -3,10 +3,14 @@
 | Symptom | Action |
 | --- | --- |
 | Connector says “Not connected” or shows zero tools | Complete OAuth sign-in and consent, then resync the tool list. A saved URL alone does not establish a connection. |
-| “Couldn't register with Bharat Law's sign-in service” | Leave the OAuth client ID and secret fields empty so Claude registers automatically, then retry. If it persists, contact support with the `ofid_` reference shown in the error. |
+| Claude: “Couldn't register with Bharat Law's sign-in service” | Leave the OAuth client ID and secret fields empty so Claude registers automatically, then retry. If it persists, contact support with the `ofid_` reference shown in the error. |
 | Earlier Claude connection stops working | Reconnect Bharat Law from Claude's connector settings and sign in again. |
 | Sign-in completes but Claude reports authorization failed | Disconnect Bharat Law in Claude and connect again, leaving OAuth client details empty. If it still fails, contact support with the approximate time and error reference. |
-| Unexpected redirect or callback error | Remove any OAuth client ID you entered for the connector, then reconnect. |
+| Claude: unexpected redirect or callback error | Remove any manually entered OAuth client ID and retry the hosted Claude automatic registration flow. |
+| ChatGPT: authentication update required | Reconnect from plugin settings and sign in again. A prior development connection may retain an outdated catalogue or grant. Confirm the current 18 tools after reconnecting. |
+| ChatGPT: redirect/callback error | The operator must register the exact callback shown by this ChatGPT connection with Cognito and the BFF. Do not remove the registered public ChatGPT client ID or switch to Claude dynamic registration. |
+| ChatGPT: OIDC or verified-email error | Contact support. The operator must verify Cognito discovery, the UserInfo proxy, deployed scopes, and the account's actual verified email. Do not bypass verification or provide tokens in a chat. |
+| ChatGPT: missing run/draft/workspace permission | Reauthorize the connection with the requested permission. Permission to read does not grant research, drafting, or workspace switching. Ordinary document access denial must be resolved in Bharat Law, not by repeatedly reconnecting. |
 | Wrong workspace or unclear case/matter | List available workspaces or matching records and select the intended one. Application cases and court matters use different references. |
 | Several similarly named court matters | Compare court/bench, case number, CNR, and parties. Refine the query or ask the user to select a match. |
 | No upcoming listing is recorded | Report that record state and freshness. It does not establish that no hearing is scheduled. Request wider/live retrieval only when the user intends it. |

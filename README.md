@@ -1,6 +1,6 @@
-# Bharat Law for Claude
+# Bharat Law for connected assistants
 
-Use your Bharat Law account in Claude to check Indian legal answers, examine citations, and find recorded court hearings. This plugin bundles three skills with the remote Bharat Law MCP connector at `https://api.bharat.law/mcp`.
+Use your Bharat Law account to check Indian legal answers, examine citations, and find recorded court hearings. The package bundles three skills with the remote Bharat Law MCP connector at `https://api.bharat.law/mcp`.
 
 ## Included skills
 
@@ -14,18 +14,16 @@ These skills do not promise universal court coverage or establish unknown legal 
 
 ## Connect and use
 
-Follow [setup](docs/setup.md) to connect with your existing Bharat Law login. No API key or OAuth client details are needed. Available features depend on your account permissions, entitlements, ready documents, source coverage, and credits.
+Follow [Claude setup](docs/setup.md) or [ChatGPT setup](docs/setup-chatgpt.md). Directory installation uses your existing Bharat Law login without an API key. Available features depend on account permissions, entitlements, ready documents, source coverage, and credits.
 
-## Documentation
+The Claude compatibility manifest remains version **0.1.4**, matching its current submission. The portable OpenAI manifest is version **0.1.5**, initially a draft submission candidate. Packaging does not establish approval, production deployment, or successful live tests on a particular client. See [permissions and data handling](docs/permissions-and-data.md) and [troubleshooting](docs/troubleshooting.md).
 
-- [Setup and prerequisites](docs/setup.md)
-- [Permissions and data handling](docs/permissions-and-data.md)
-- [Troubleshooting](docs/troubleshooting.md)
+## Distribution and support
 
-## Package and support
+The installed distribution contains Markdown, JSON, and the Bharat Law icon, with no hooks, executable installation steps, runtime dependencies, credentials, or customer records. Source-repository authoring tools are separate from the submission ZIP. The hosted service implementation is not included.
 
-This package contains Markdown, JSON, and the Bharat Law brand icon, with no hooks, executable installation steps, runtime dependencies, credentials, or customer records. The remote service is hosted by Bharat Law; its implementation is not included here.
+Maintainers can validate and create the OpenAI draft ZIP with `python3 scripts/package_openai.py --check` and `python3 scripts/package_openai.py`. The build uses an explicit public-file allowlist and reports remaining review gates. It does not submit, deploy, or assert that review cases have passed. Review fixture definitions live in `docs/openai-review-cases.json`; execution evidence belongs outside the public package.
 
 Support: [support@bharat.law](mailto:support@bharat.law). Privacy: [Bharat Law privacy policy](https://bharat.law/legal/privacy-policy). Report vulnerabilities using [SECURITY.md](SECURITY.md).
 
-The MIT license applies to this plugin's files. It does not grant rights to service access, retrieved legal sources, customer documents, or third-party content.
+The MIT license applies to package files. It does not grant rights to service access, retrieved legal sources, customer documents, or third-party content.

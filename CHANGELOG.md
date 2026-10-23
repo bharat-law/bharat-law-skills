@@ -1,5 +1,13 @@
 # Changelog
 
+## OpenAI 0.1.5 — 2026-10-23
+
+- Add a portable OpenAI package for the existing 18-tool MCP and three skills.
+- Configure the registered public ChatGPT OAuth client and Cognito OIDC discovery.
+- Add ChatGPT setup, controlled review specifications, and deterministic draft packaging.
+- Preserve the Claude compatibility manifest at 0.1.4 while its submission is in review.
+- Live review cases and walkthrough recording remain pending; package validation does not establish submission readiness.
+
 ## 0.1.4 — 2026-10-23
 
 - Update plugin packaging.
