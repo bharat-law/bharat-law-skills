@@ -8,3 +8,5 @@
 node_modules/
 .claude/settings.local.json
 *.zip
+dist/
+__pycache__/
