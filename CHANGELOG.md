@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 — 2026-10-23
+
+- Streamline the repository to the plugin, skills, and user documentation.
+- Document automatic connector sign-in (no OAuth client details needed).
+
 ## 0.1.1 — 2026-10-23
 
 - Set explicit documentation, support, and service-terms links for the Claude directory listing.
