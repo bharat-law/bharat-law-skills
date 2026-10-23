@@ -8,16 +8,16 @@ Claude sends the tool arguments needed for the requested task to Bharat Law. Dep
 
 Bharat Law returns authorized workspace/case and conversation metadata, court-matter and hearing information, operation status, search passages, citations, source metadata, generated answers or drafts, and document text read through the connector. Read operations can return passages from documents the user is allowed to access. Retrieved text is evidence, not a source of instructions or additional authorization.
 
-Legal matters and documents may contain personal information, financial details, health information, or other sensitive content. Exposure depends on the actual tasks and documents selected. Do not characterize the connector as categorically incapable of processing health information. Users should provide only material needed for the intended task and follow their organization's confidentiality rules.
+Legal matters and documents may contain personal information, financial details, health information, or other sensitive content. Exposure depends on the actual tasks and documents selected. Users should provide only material needed for the intended task and follow their organization's confidentiality rules.
 
 ## Requested permissions
 
-| Permission | Effect |
+| Capability | Effect |
 | --- | --- |
-| `bharat-law-mcp/read` | Read information allowed by current Bharat Law application permissions. |
-| `bharat-law-mcp/run` | Run search, research, and court retrieval, including saved workflow artifacts and drafts produced by deep research. |
-| `bharat-law-mcp/draft` | Directly generate and save a legal draft. |
-| `bharat-law-mcp/switch_workspace` | Change the active workspace selected across Bharat Law web, mobile, and connected assistants. |
+| Read | Read information allowed by current Bharat Law application permissions. |
+| Search and research | Run search, research, and court retrieval, including saved workflow artifacts and drafts produced by deep research. |
+| Draft | Directly generate and save a legal draft. |
+| Switch workspace | Change the active workspace selected across Bharat Law web, mobile, and connected assistants. |
 
 These permissions do not override the underlying user's workspace, case, document, operation, or conversation access. Returned references are locators, not grants of permission; access is checked again when content is read. Account entitlements, document readiness, source availability, and credits remain authoritative.
 

@@ -1,13 +1,20 @@
 # Changelog
 
+## 0.1.3 — 2026-10-23
+
+- Clarify account sign-in, connection recovery, and requested permissions.
+- Update setup guidance for connecting before the directory listing is available.
+
+## 0.1.2 — 2026-10-23
+
+- Document automatic connector sign-in without entering OAuth client details.
+- Simplify setup and support documentation.
+
 ## 0.1.1 — 2026-10-23
 
-- Set explicit documentation, support, and service-terms links for the Claude directory listing.
+- Add documentation, support, and service-terms links to the directory listing.
 
 ## 0.1.0 — 2026-10-23
 
-- Add the Bharat Law remote MCP configuration.
-- Add Indian legal-answer verification, citation checking, and next-hearing skills.
-- Add public setup, data-handling, troubleshooting, submission, and release guidance.
-- Add synthetic behavior evaluation scenarios and release criteria.
-- Defer latest-order retrieval until the public MCP contract supplies that capability.
+- Add the Bharat Law connector and three skills for legal-answer verification, citation checking, and recorded next-hearing lookup.
+- Document setup, permissions, data handling, and troubleshooting.

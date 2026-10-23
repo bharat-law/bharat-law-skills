@@ -17,19 +17,17 @@ Use your existing Bharat Law account to work with authorized cases, conversation
 | Support | `support@bharat.law` |
 | Privacy policy | `https://bharat.law/legal/privacy-policy` |
 
-## Published directory connection
+## Connect from the Claude directory
+
+If Bharat Law is not yet available in the directory, use the custom connector instructions below.
 
 When the listing is available, open Claude **Customize → Connectors** (or **Settings → Connectors**, depending on the client), find **Bharat Law**, and choose **Connect**. Review the disclosure, sign in to Bharat Law, and consent to the requested permissions. Your available data follows your Bharat Law account's access rules.
 
-The connector supplies tools. The companion Bharat Law plugin adds the verification, citation-checking, and next-hearing skills. Both use the same MCP URL. Install the plugin through its Claude directory listing when available, and reuse an existing connection if Claude offers that option.
+The connector supplies tools. The companion Bharat Law plugin adds the verification, citation-checking, and next-hearing skills. Both use the same MCP URL. Install the plugin through its Claude directory listing, and reuse an existing connection if Claude offers that option.
 
-This repository is a publication candidate; these steps do not imply that either directory listing is already live.
+## Add as a custom connector
 
-## Pre-publication company setup
-
-The company operator should follow [the company setup handoff](company-claude-setup.md). A URL-added custom connector needs the new Claude OAuth client ID and secret entered privately through **Use your own OAuth client** or **Advanced settings**. It does not inherit the client secret entered for a directory submission.
-
-Ordinary end users should not obtain or distribute the company OAuth client secret. Published-directory users sign in with their own Bharat Law accounts.
+You can also add the connector by URL: **Customize → Connectors → Add custom connector**, name it **Bharat Law**, and enter `https://api.bharat.law/mcp`. Leave the OAuth client ID and secret fields empty; Claude registers itself automatically and you sign in with your own Bharat Law account.
 
 ## Try the connection
 
@@ -48,4 +46,4 @@ To revoke access, sign in to Bharat Law, open **MCP connections** at `/integrati
 
 ## Supported clients and limits
 
-Hosted Claude is the initial authentication target. Claude Code uses a separate client identity and loopback callbacks; this package does not claim tested Code OAuth support. Other client surfaces must be tested before compatibility is advertised. Source coverage and freshness vary. A recorded hearing can change, and an unknown legal-treatment result is not confirmation that an authority is current.
+The connector supports Claude on the web, desktop, mobile, and Cowork. Claude Code is not currently supported. Source coverage and freshness vary. A recorded hearing can change, and an unknown legal-treatment result is not confirmation that an authority is current.

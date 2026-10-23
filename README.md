@@ -1,8 +1,6 @@
 # Bharat Law for Claude
 
-Use your Bharat Law account in Claude to check Indian legal answers, examine citations, and find recorded court hearings. This plugin bundles three skills with the remote [Bharat Law MCP connector](https://api.bharat.law/mcp).
-
-Version 0.1.1 is a publication candidate. Creating this local package does not publish a GitHub repository or a Claude directory listing.
+Use your Bharat Law account in Claude to check Indian legal answers, examine citations, and find recorded court hearings. This plugin bundles three skills with the remote Bharat Law MCP connector at `https://api.bharat.law/mcp`.
 
 ## Included skills
 
@@ -12,28 +10,21 @@ Version 0.1.1 is a publication candidate. Creating this local package does not p
 | `bharat-law-check-citation` | “Check whether this Indian judgment citation exists and supports the proposition beside it.” | Separate findings on identity, quotation, support, applicability, and known treatment. |
 | `bharat-law-next-hearing` | “Find the recorded next hearing for my subscribed matter; ask me to choose if more than one matches.” | Identified matter, recorded listing, source freshness, and check time. |
 
-Latest-order retrieval is deferred: the current public MCP tool catalogue does not expose a latest-order capability. These skills do not promise universal court coverage or establish unknown legal treatment.
+These skills do not promise universal court coverage or establish unknown legal treatment. Latest-order retrieval is not currently available.
 
 ## Connect and use
 
-Follow [setup](docs/setup.md) to connect `https://api.bharat.law/mcp` with your existing Bharat Law login. No Bharat Law API key is required. Available features depend on your account permissions, entitlements, ready documents, source coverage, and credits.
-
-The connector and plugin are separate Claude directory submissions. The connector supplies tools; the plugin supplies workflow guidance and references the identical server URL. Hosted Claude is the initial connection target. Claude Code and other client surfaces require separate authentication testing before compatibility is advertised.
+Follow [setup](docs/setup.md) to connect with your existing Bharat Law login. No API key or OAuth client details are needed. Available features depend on your account permissions, entitlements, ready documents, source coverage, and credits.
 
 ## Documentation
 
 - [Setup and prerequisites](docs/setup.md)
 - [Permissions and data handling](docs/permissions-and-data.md)
 - [Troubleshooting](docs/troubleshooting.md)
-- [Connector listing content](docs/connector-listing.md)
-- [Company Claude setup handoff](docs/company-claude-setup.md)
-- [Release and publication procedure](docs/release.md)
-- [Local validation and remaining live checks](docs/validation.md)
-- [Evaluation cases](evals/cases.json) and [grading](evals/grading.md)
 
 ## Package and support
 
-This package contains Markdown, JSON, and the existing Bharat Law brand icon, with no hooks, executable installation steps, runtime dependencies, credentials, or private case records. The remote service remains hosted by Bharat Law; its implementation is not included here.
+This package contains Markdown, JSON, and the Bharat Law brand icon, with no hooks, executable installation steps, runtime dependencies, credentials, or customer records. The remote service is hosted by Bharat Law; its implementation is not included here.
 
 Support: [support@bharat.law](mailto:support@bharat.law). Privacy: [Bharat Law privacy policy](https://bharat.law/legal/privacy-policy). Report vulnerabilities using [SECURITY.md](SECURITY.md).
 
