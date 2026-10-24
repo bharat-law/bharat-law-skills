@@ -22,7 +22,7 @@
       "interface": {
         "displayName": "Bharat Law",
         "shortDescription": "Indian legal research",
-        "longDescription": "Connect your existing Bharat Law account to research Indian law, verify legal answers and citations against available evidence, check recorded court hearings, and work with authorized cases, documents, and saved conversations. Guided skills help assess legal answers, citations, and recorded next hearings.\n\nSearch and research can save work in Bharat Law. Drafting and extended research can create additional saved artifacts and use existing account credits. Saved work follows workspace and case permissions. Switching the active workspace also changes the workspace selected in Bharat Law web and mobile apps.\n\nA Bharat Law account is required. Available features depend on permissions, entitlements, ready documents, credits, and source coverage. Court listings can change. Missing evidence and unknown legal treatment remain unresolved; outputs need qualified human review. Latest-order retrieval is not included.",
+        "longDescription": "Connect your existing Bharat Law account to research Indian law, verify legal answers and citations against available evidence, check recorded court hearings, and work with authorized cases, documents, and saved conversations. Guided skills help assess legal answers, citations, and recorded next hearings.\n\nLegal lookup finds up to three authorities in real time as Markdown and reads stored judgment details/headnotes and available statute text through canonical Bharat Law links without saving searches or conversations. Research can save work in Bharat Law. Drafting and extended research can create additional saved artifacts and use existing account credits. Saved work follows workspace and case permissions. Switching the active workspace also changes the workspace selected in Bharat Law web and mobile apps.\n\nA Bharat Law account is required. Available features depend on permissions, entitlements, ready documents, credits, and source coverage. Court listings can change. Missing evidence and unknown legal treatment remain unresolved; outputs need qualified human review. Latest-order retrieval is not included.",
         "developerName": "Bharat Technologies, Inc.",
         "category": "Productivity",
         "capabilities": [
@@ -50,14 +50,14 @@
             {
               "description": "Verify a supplied Indian legal answer against retrieved evidence",
               "prompt": "Verify this Indian-law claim: Every Indian contract must be written and registered to be enforceable. Show supporting and conflicting source passages, qualifications, and unresolved points. Do not start deep research.",
-              "tools_triggered": "list_sources, search, get_operation, read_content",
-              "expected_behavior": "Retrieve and read relevant sources, distinguish the supplied claim from verified evidence, and give a qualified assessment with returned source links. Save or recover the search using its existing work identifiers; do not start paid deep research."
+              "tools_triggered": "search, read_content",
+              "expected_behavior": "Find the mentioned statutory provisions in real time using free-text targets and Act names. Read the returned full sections or available database text through canonical Bharat Law URLs. Report identity/existence and content support separately, identify the stored evidence basis, preserve coverage limitations, and create no saved search or conversation."
             },
             {
               "description": "Check a citation and the proposition attributed to it",
-              "prompt": "Check K.S. Puttaswamy (Retd.) v. Union of India, (2017) 10 SCC 1, for the proposition that privacy is a fundamental right. Separately assess authority identity, passage support, applicability, and known treatment. Leave missing evidence unresolved.",
-              "tools_triggered": "list_sources, search, get_operation, read_content",
-              "expected_behavior": "Find candidate authority and read returned passages. Report identity, support, applicability, and treatment separately, citing only available evidence without inferring good-law status."
+              "prompt": "Check K.S. Puttaswamy (Retd.) v. Union of India, (2017) 10 SCC 1, Supreme Court, for the proposition that privacy is a fundamental right, and Section 43A of the Information Technology Act, 2000 for the attributed compensation rule. Separately assess authority existence, support from the available stored records, applicability, and known treatment. Leave missing evidence unresolved.",
+              "tools_triggered": "search, read_content",
+              "expected_behavior": "Look up each judgment/statute mention with artifact_type and a free-text court or target. Compare top-three Markdown candidates, then use returned source URLs and next_position for available database records. Assess judgment key aspects from stored headnotes with that basis explicit; leave exact original judgment quotations unresolved. Assess sections and other statutes from returned stored text, preserve coverage limits, and do not request judgment pages or OCR."
             },
             {
               "description": "Select a subscribed court matter and report its recorded next hearing",

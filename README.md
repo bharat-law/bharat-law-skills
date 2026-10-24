@@ -10,6 +10,8 @@ Use your Bharat Law account to check Indian legal answers, examine citations, an
 | `bharat-law-check-citation` | “Check whether this Indian judgment citation exists and supports the proposition beside it.” | Separate findings on identity, quotation, support, applicability, and known treatment. |
 | `bharat-law-next-hearing` | “Find the recorded next hearing for my subscribed matter; ask me to choose if more than one matches.” | Identified matter, recorded listing, source freshness, and check time. |
 
+Legal lookup uses live Find and returns the top three matches as Markdown. Judgment results include details and headnotes; sections include full text; other statute targets include a description and a link to the original in Bharat Law. Verification reads available database content through those authenticated links. Judgment checks use stored details/headnotes, so exact quotations from the original judgment remain unresolved; full section text and available stored statute text support checks within their returned coverage. Lookup does not save a search or conversation.
+
 These skills do not promise universal court coverage or establish unknown legal treatment. Latest-order retrieval is not currently available.
 
 ## Connect and use

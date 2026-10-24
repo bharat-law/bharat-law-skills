@@ -26,7 +26,7 @@ The package requests `openid`, `email`, `profile`, `bharat-law-mcp/read`, `bhara
 
 Use the callback URL displayed by the specific connection flow. The operator must register that exact URL with both the OAuth provider and the BFF allowlist. Do not substitute a wildcard or an older connection's callback. Authentication also uses Cognito discovery and the BFF UserInfo proxy declared in `mcp.json`; those server changes must be deployed before testing.
 
-If an older development connection says **Authentication update required**, reconnect and sign in again, then verify that the tool catalogue contains the current 18 tools. Do not use a stale catalogue as submission evidence. See [troubleshooting](troubleshooting.md) if sign-in fails.
+If an older development connection says **Authentication update required**, reconnect and sign in again, then verify that the tool catalogue contains the current 18 tools. Confirm that `search` accepts `query`, `artifact_type`, and a free-text court or statute target, and that `read_content` accepts returned `source_url` values. Do not use a stale catalogue as submission evidence. See [troubleshooting](troubleshooting.md) if sign-in fails.
 
 ## Try the connection
 
@@ -36,7 +36,7 @@ If an older development connection says **Authentication update required**, reco
 4. “Verify the Indian legal claims in this answer and show supporting or conflicting passages.” Then supply the answer.
 5. “Check this Indian judgment citation and the proposition beside it.” Then supply both.
 
-Use the selected workspace/case and reuse a conversation for related follow-ups. Search and research may save work; drafts and extended research can save additional artifacts and use credits. Starting extended research requires the user's intent. A workspace switch also changes the workspace selected in Bharat Law web and mobile apps.
+Legal lookup returns up to three matches as Markdown and reads stored judgment details/headnotes and available statute text through returned Bharat Law links. Exact judgment quotations remain unresolved when only headnotes are available. It does not save searches or create conversations. For separately requested research or document work, use the selected workspace/case and reuse its conversation for related follow-ups. Research saves answers; drafts and extended research can save additional artifacts and use credits. Starting extended research requires the user's intent. A workspace switch also changes the workspace selected in Bharat Law web and mobile apps.
 
 ## Disconnect or revoke
 

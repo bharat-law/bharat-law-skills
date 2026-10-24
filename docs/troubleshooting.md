@@ -11,6 +11,9 @@
 | ChatGPT: redirect/callback error | The operator must register the exact callback shown by this ChatGPT connection with Cognito and the BFF. Do not remove the registered public ChatGPT client ID or switch to Claude dynamic registration. |
 | ChatGPT: OIDC or verified-email error | Contact support. The operator must verify Cognito discovery, the UserInfo proxy, deployed scopes, and the account's actual verified email. Do not bypass verification or provide tokens in a chat. |
 | ChatGPT: missing run/draft/workspace permission | Reauthorize the connection with the requested permission. Permission to read does not grant research, drafting, or workspace switching. Ordinary document access denial must be resolved in Bharat Law, not by repeatedly reconnecting. |
+| Search rejects old saved-work arguments | Refresh the tool catalogue. Legal lookup now takes `query`, `artifact_type`, and a free-text court or statute target; saved research and document work use their separate tools. |
+| No court or statute target matches | Use the returned allowed names to correct the free-text court/target. A High Court lookup needs its name. |
+| Source text is unavailable or changes during reading | Keep the affected verification unresolved. Restart changed content using its returned canonical link. Label headnote-based key-aspect findings; exact judgment quotations cannot be verified from headnotes. |
 | Wrong workspace or unclear case/matter | List available workspaces or matching records and select the intended one. Application cases and court matters use different references. |
 | Several similarly named court matters | Compare court/bench, case number, CNR, and parties. Refine the query or ask the user to select a match. |
 | No upcoming listing is recorded | Report that record state and freshness. It does not establish that no hearing is scheduled. Request wider/live retrieval only when the user intends it. |

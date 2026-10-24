@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Route routine legal-answer and citation verification through live Find with free-text court/target matching and top-three Markdown results.
+- Read stored legal records through canonical Bharat Law source URLs and explicit continuation positions; label headnote evidence and leave exact judgment quotations unresolved.
+- Keep saved research, private-document reading, and hearing workflows separate; update review scenarios and package validation.
+
 ## OpenAI 0.1.5 — 2026-10-23
 
 - Add a portable OpenAI package for the existing 18-tool MCP and three skills.

@@ -6,7 +6,7 @@ This guide describes the connector's application behavior. Read the [Bharat Law 
 
 The connected assistant sends the tool arguments needed for the requested task to Bharat Law. Depending on the workflow, those arguments include search queries, legal questions, selected source or document references, workspace/case selections, conversation references, drafting instructions, and clarification answers.
 
-Bharat Law returns authorized workspace/case and conversation metadata, court-matter and hearing information, operation status, search passages, citations, source metadata, generated answers or drafts, and document text read through the connector. Read operations can return passages from documents the user is allowed to access. Retrieved text is evidence, not a source of instructions or additional authorization.
+Bharat Law returns authorized workspace/case and conversation metadata, court-matter and hearing information, operation status, live legal matches as Markdown, citations, source metadata, stored judgment details/headnotes and statute text, generated answers or drafts, and document text read through the connector. Read operations can return passages from documents the user is allowed to access. Retrieved text is evidence, not a source of instructions or additional authorization.
 
 Legal matters and documents may contain personal information, financial details, health information, or other sensitive content. Exposure depends on the actual tasks and documents selected. Users should provide only material needed for the intended task and follow their organization's confidentiality rules. For ChatGPT, do not send credentials, government identifiers, protected health information, or other content prohibited by the applicable plugin policies. The draft OpenAI submission still requires an eligibility review of actual service inputs, outputs, and underlying source access; this documentation does not certify that review.
 
@@ -14,8 +14,8 @@ Legal matters and documents may contain personal information, financial details,
 
 | Capability | Effect |
 | --- | --- |
-| Read | Read information allowed by current Bharat Law application permissions. |
-| Search and research | Run search, research, and court retrieval, including saved workflow artifacts and drafts produced by deep research. |
+| Read | Find legal authorities in real time, read available stored legal records through canonical Bharat Law links, and read other information allowed by current application permissions. |
+| Research and court retrieval | Run saved research and court retrieval, including saved workflow artifacts and drafts produced by deep research. |
 | Draft | Directly generate and save a legal draft. |
 | Switch workspace | Change the active workspace selected across Bharat Law web, mobile, and connected assistants. |
 
@@ -25,9 +25,9 @@ ChatGPT sign-in also requests `openid`, `email`, and `profile` identity scopes. 
 
 ## Saved work and sharing
 
-Search saves matches, research saves answers, and drafting/deep research can save additional artifacts. Related follow-ups can continue conversations started in Bharat Law web or mobile. Saved work follows the relevant workspace/case sharing and privacy rules; it should not be assumed to remain visible only in the connected assistant.
+Legal search and stored-source reading do not save a search, operation, result artifact, or conversation. Returned canonical links identify the existing legal sources and are checked against account access when read. Research saves answers, and drafting/deep research can save additional artifacts. Related follow-ups can continue conversations started in Bharat Law web or mobile. Saved work follows the relevant workspace/case sharing and privacy rules; it should not be assumed to remain visible only in the connected assistant.
 
-Explicit source/document selections can persist across follow-ups in a conversation. Clearing a document selection does not erase conversation memory. A change of active workspace also affects the user's Bharat Law app experience.
+For saved research and document work, explicit source/document selections can persist across follow-ups in a conversation. Clearing a document selection does not erase conversation memory. A change of active workspace also affects the user's Bharat Law app experience.
 
 ## Credits and external sources
 

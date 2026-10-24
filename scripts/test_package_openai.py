@@ -79,6 +79,52 @@ class PublicPackageTests(unittest.TestCase):
         with self.assertRaisesRegex(package.PackageError,'actual Cognito issuer'):
             package.validate(self.root)
 
+    def test_verification_reviews_reject_saved_search_tool_lifecycle(self):
+        case = json.loads((self.root/'docs/openai-review-cases.json').read_text())['cases'][0]
+        case['tools_triggered'] = ['list_sources', 'search', 'get_operation', 'read_content']
+        with self.assertRaisesRegex(package.PackageError, 'routine verification must use search and read_content only'):
+            package.validate_verification_workflow(case)
+
+    def test_verification_search_inputs_reject_saved_work_and_backend_ids(self):
+        fixtures = json.loads((self.root/'docs/openai-review-cases.json').read_text())
+        for key, value in (('request_key', 'old-key'), ('canonical_act_ids', ['act-43-1961']), ('conversation_ref', 'saved')):
+            with self.subTest(key=key):
+                case = json.loads(json.dumps(fixtures['cases'][0]))
+                case['verification_workflow']['searches'][0][key] = value
+                with self.assertRaisesRegex(package.PackageError, 'saved-work arguments and backend IDs are unsupported'):
+                    package.validate_verification_workflow(case)
+
+    def test_verification_reviews_require_each_corpus_filter_and_stored_reader(self):
+        cases = json.loads((self.root/'docs/openai-review-cases.json').read_text())['cases']
+        for case in cases[:2]:
+            package.validate_verification_workflow(case)
+        judgment = json.loads(json.dumps(cases[1]))
+        del judgment['verification_workflow']['searches'][0]['court']
+        with self.assertRaisesRegex(package.PackageError, 'free-text court'):
+            package.validate_verification_workflow(judgment)
+        statute = json.loads(json.dumps(cases[0]))
+        del statute['verification_workflow']['searches'][0]['target']
+        with self.assertRaisesRegex(package.PackageError, 'free-text target'):
+            package.validate_verification_workflow(statute)
+        original = json.loads(json.dumps(cases[1]))
+        original['verification_workflow']['source_read'] = {'content_ref': 'invented', 'cursor': 'old-cursor'}
+        with self.assertRaisesRegex(package.PackageError, 'returned source URL and continuation position'):
+            package.validate_verification_workflow(original)
+        incomplete = json.loads(json.dumps(cases[1]))
+        incomplete['verification_workflow']['outcomes'].remove('no_match_is_unresolved')
+        with self.assertRaisesRegex(package.PackageError, 'verification outcomes'):
+            package.validate_verification_workflow(incomplete)
+
+    def test_verification_reviews_reject_judgment_page_or_original_quote_claims(self):
+        case = json.loads((self.root/'docs/openai-review-cases.json').read_text())['cases'][1]
+        case['verification_workflow']['evidence_basis']['judgement'] = 'original_pages_or_ocr'
+        with self.assertRaisesRegex(package.PackageError, 'must use database evidence'):
+            package.validate_verification_workflow(case)
+        case['verification_workflow']['evidence_basis']['judgement'] = 'stored_headnotes_and_details'
+        case['verification_workflow']['evidence_basis']['judgement_quotation'] = 'verified_from_headnotes'
+        with self.assertRaisesRegex(package.PackageError, 'leave exact judgment quotations unresolved'):
+            package.validate_verification_workflow(case)
+
     def test_claude_manifest_and_connection_are_preserved(self):
         self.assertEqual(json.loads((self.root/'.claude-plugin/plugin.json').read_text())['version'],'0.1.4')
         self.assertEqual((self.root/'.mcp.json').read_bytes(), (package.ROOT/'.mcp.json').read_bytes())

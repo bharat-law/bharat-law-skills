@@ -36,11 +36,11 @@ You can also add the connector by URL: **Customize → Connectors → Add custom
 3. “Find the recorded next hearing for my subscribed matter. Ask me to choose if several matters match.”
 4. “Verify the Indian legal claims in the following answer. Show supporting or conflicting passages and leave unresolved points explicit.” Then provide the answer to check.
 
-For citation checking, provide the citation and the proposition or quotation you want tested. For a hearing lookup, provide enough parties, court/bench, or case identifiers to identify the intended matter.
+For citation checking, provide the citation and the proposition or quotation you want tested. Include the Supreme Court or named High Court for a judgment, or the provision/component with its Act name for a statute. Lookup returns up to three matches; the assistant can read stored judgment details/headnotes and available statute text through returned Bharat Law links without starting saved research. For a hearing lookup, provide enough parties, court/bench, or case identifiers to identify the intended matter.
 
 ## Saved work and disconnection
 
-Tell Claude to continue the same Bharat Law conversation for related follow-ups. Search and research may save work in Bharat Law; drafts and deep research can create further saved artifacts. A workspace switch also changes the workspace selected in the Bharat Law web and mobile apps.
+Legal search and source reading run in real time without saved searches or conversations. For separately requested saved research, tell Claude to continue the same Bharat Law conversation for related follow-ups. Research saves answers; drafts and deep research can create further saved artifacts. A workspace switch also changes the workspace selected in the Bharat Law web and mobile apps.
 
 To revoke access, sign in to Bharat Law, open **MCP connections** at `/integrations/mcp`, select the intended Claude connection, and choose **Revoke access**. Revocation stops further access through that connection. Already-submitted work may finish and use credits; saved work remains under normal workspace/case permissions. Disconnecting Claude and revoking Bharat Law access are separate account-management actions.
 

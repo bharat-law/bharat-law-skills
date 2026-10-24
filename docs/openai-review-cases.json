@@ -8,36 +8,94 @@
       "description": "Verify a supplied Indian legal answer against retrieved evidence",
       "prompt": "Verify this Indian-law claim: Every Indian contract must be written and registered to be enforceable. Show supporting and conflicting source passages, qualifications, and unresolved points. Do not start deep research.",
       "tools_triggered": [
-        "list_sources",
         "search",
-        "get_operation",
         "read_content"
       ],
-      "expected_behavior": "Retrieve and read relevant sources, distinguish the supplied claim from verified evidence, and give a qualified assessment with returned source links. Save or recover the search using its existing work identifiers; do not start paid deep research.",
+      "expected_behavior": "Find the mentioned statutory provisions in real time using free-text targets and Act names. Read the returned full sections or available database text through canonical Bharat Law URLs. Report identity/existence and content support separately, identify the stored evidence basis, preserve coverage limitations, and create no saved search or conversation.",
       "checks": [
-        "Read evidence before asserting support",
-        "Preserve source and treatment limitations",
-        "No unrequested deep_research",
-        "Retry accepted work without duplication"
-      ]
+        "Use top-three Markdown matches and returned canonical URLs",
+        "Separate authority existence from content support",
+        "Read full section text or available database content before asserting support",
+        "No saved search, request key, operation polling, or unrequested deep research"
+      ],
+      "verification_workflow": {
+        "searches": [
+          {
+            "query": "Section 10 Indian Contract Act, 1872",
+            "artifact_type": "statute",
+            "target": "section"
+          },
+          {
+            "query": "Section 17 Registration Act, 1908",
+            "artifact_type": "statute",
+            "target": "section"
+          }
+        ],
+        "source_read": {
+          "source_url": "returned_by_search",
+          "position": "returned_next_position"
+        },
+        "outcomes": [
+          "identity_separate_from_content",
+          "source_basis_explicit",
+          "judgement_quotes_unresolved_from_headnotes",
+          "no_match_is_unresolved",
+          "no_saved_search"
+        ],
+        "evidence_basis": {
+          "judgement": "stored_headnotes_and_details",
+          "statute": "stored_section_component_or_act_text",
+          "judgement_quotation": "unresolved_from_headnotes"
+        }
+      }
     },
     {
       "id": "P2",
       "kind": "positive",
       "description": "Check a citation and the proposition attributed to it",
-      "prompt": "Check K.S. Puttaswamy (Retd.) v. Union of India, (2017) 10 SCC 1, for the proposition that privacy is a fundamental right. Separately assess authority identity, passage support, applicability, and known treatment. Leave missing evidence unresolved.",
+      "prompt": "Check K.S. Puttaswamy (Retd.) v. Union of India, (2017) 10 SCC 1, Supreme Court, for the proposition that privacy is a fundamental right, and Section 43A of the Information Technology Act, 2000 for the attributed compensation rule. Separately assess authority existence, support from the available stored records, applicability, and known treatment. Leave missing evidence unresolved.",
       "tools_triggered": [
-        "list_sources",
         "search",
-        "get_operation",
         "read_content"
       ],
-      "expected_behavior": "Find candidate authority and read returned passages. Report identity, support, applicability, and treatment separately, citing only available evidence without inferring good-law status.",
+      "expected_behavior": "Look up each judgment/statute mention with artifact_type and a free-text court or target. Compare top-three Markdown candidates, then use returned source URLs and next_position for available database records. Assess judgment key aspects from stored headnotes with that basis explicit; leave exact original judgment quotations unresolved. Assess sections and other statutes from returned stored text, preserve coverage limits, and do not request judgment pages or OCR.",
       "checks": [
-        "Separate identity from proposition support",
-        "Read actual source passages",
-        "Unknown treatment remains unresolved"
-      ]
+        "Handle judgment and statute mentions separately",
+        "Use court name and Section with Act name rather than backend IDs",
+        "Read database records through source_url and returned continuation position",
+        "Label stored headnotes and leave exact judgment quotations unresolved",
+        "Unknown treatment, ambiguous identity, and missing stored text remain unresolved"
+      ],
+      "verification_workflow": {
+        "searches": [
+          {
+            "query": "K.S. Puttaswamy (Retd.) v. Union of India (2017) 10 SCC 1",
+            "artifact_type": "judgement",
+            "court": "Supreme Court"
+          },
+          {
+            "query": "Section 43A Information Technology Act, 2000",
+            "artifact_type": "statute",
+            "target": "section"
+          }
+        ],
+        "source_read": {
+          "source_url": "returned_by_search",
+          "position": "returned_next_position"
+        },
+        "outcomes": [
+          "identity_separate_from_content",
+          "source_basis_explicit",
+          "judgement_quotes_unresolved_from_headnotes",
+          "no_match_is_unresolved",
+          "no_saved_search"
+        ],
+        "evidence_basis": {
+          "judgement": "stored_headnotes_and_details",
+          "statute": "stored_section_component_or_act_text",
+          "judgement_quotation": "unresolved_from_headnotes"
+        }
+      }
     },
     {
       "id": "P3",

@@ -63,6 +63,27 @@ def selected_files(root):
         names.add(relative.as_posix())
     return sorted(names)
 
+def validate_verification_workflow(case):
+    """Keep routine-verification review inputs on the live legal lookup contract."""
+    label = case['id']
+    require(case['tools_triggered'] == ['search', 'read_content'], f'{label}: routine verification must use search and read_content only')
+    workflow = case.get('verification_workflow')
+    require(isinstance(workflow, dict), f'{label}: verification workflow is required')
+    searches = workflow.get('searches')
+    require(isinstance(searches, list) and searches, f'{label}: focused search inputs are required')
+    for search in searches:
+        require(isinstance(search, dict), f'{label}: search input must be an object')
+        kind = search.get('artifact_type')
+        require(kind in {'judgement', 'statute'}, f'{label}: search must select a legal artifact type')
+        filter_name = 'court' if kind == 'judgement' else 'target'
+        require(set(search) == {'query', 'artifact_type', filter_name}, f'{label}: search accepts query, artifact_type and free-text {filter_name}; saved-work arguments and backend IDs are unsupported')
+        require(all(isinstance(search[field], str) and search[field].strip() for field in ('query', filter_name)), f'{label}: query and {filter_name} must be nonempty text')
+    require(workflow.get('source_read') == {'source_url': 'returned_by_search', 'position': 'returned_next_position'}, f'{label}: stored content must use the returned source URL and continuation position')
+    require(workflow.get('evidence_basis') == {'judgement': 'stored_headnotes_and_details', 'statute': 'stored_section_component_or_act_text', 'judgement_quotation': 'unresolved_from_headnotes'}, f'{label}: verification must use database evidence and leave exact judgment quotations unresolved from headnotes')
+    outcomes = workflow.get('outcomes')
+    required = {'identity_separate_from_content', 'source_basis_explicit', 'judgement_quotes_unresolved_from_headnotes', 'no_match_is_unresolved', 'no_saved_search'}
+    require(isinstance(outcomes, list) and all(isinstance(value, str) for value in outcomes) and required <= set(outcomes), f'{label}: verification outcomes must distinguish identity, stored evidence basis, quotation limits, missing evidence and unsaved lookup')
+
 def validate(root):
     root = root.resolve()
     manifest, mcp, fixtures = (load_json(root, name) for name in ('plugin.json','mcp.json','docs/openai-review-cases.json'))
@@ -104,6 +125,8 @@ def validate(root):
     require(fixtures.get('schema_version') == 1 and fixtures.get('execution_status') in {'not_run','run'}, 'Review fixture status must be explicit')
     cases = fixtures['cases']
     require([c['id'] for c in cases] == ['P1','P2','P3','P4','P5','N1','N2','N3'], 'Review cases must retain stable IDs')
+    for case in cases[:2]:
+        validate_verification_workflow(case)
     review = extension['review']
     require(review.get('commerce') is False, 'No commerce in this release')
     for kind, count in (('positive', 5), ('negative', 3)):
