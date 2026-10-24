@@ -36,6 +36,7 @@ Open **Customize → Connectors → Add custom connector**, name it **Bharat Law
 3. “Find the recorded next hearing for my subscribed matter. Ask me to choose if several matters match.”
 4. “Verify the Indian legal claims in this answer and show supporting or conflicting passages.” Then provide the answer.
 5. “Check this Indian judgment citation and the proposition beside it.” Then provide both.
+6. “Run Bharat Law's research on this question and compare it with your answer. Check the penalties against every relevant subsection, weigh the authorities for my court, and link the sources for each correction.” Provide the question and your court or jurisdiction.
 
 For citation checking, include the Supreme Court or named High Court for a judgment, or the provision with its Act name for a statute. Lookup returns up to three matches. Assess only the returned evidence; a summary cannot verify an exact quotation from the original judgment. For hearing lookup, provide enough parties, court/bench, or case identifiers to identify the intended matter.
 

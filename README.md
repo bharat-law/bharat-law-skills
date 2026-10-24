@@ -12,6 +12,8 @@ Use your Bharat Law account to check Indian legal answers, examine citations, an
 
 Legal lookup returns up to three matches and available source text through Bharat Law links. Assess only the evidence returned: a summary cannot verify an exact quotation from the original judgment. Missing text, incomplete coverage, and unknown legal treatment remain unresolved. Legal lookup does not save a search or conversation.
 
+When a Bharat Law match is unavailable, the verification skills may use the assistant's web tools to consult official court sites or other public sources. These lookups use only authority identifiers, with external evidence labelled separately; unrelated private matter or document content must not be sent to those sites. News reports do not establish a judgment's holding.
+
 These skills do not promise universal court coverage. Latest-order retrieval is not currently available, and recorded hearings can change. Review generated answers and drafts before relying on them, filing, or sharing them.
 
 ## Connect and use
