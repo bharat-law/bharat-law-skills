@@ -5,7 +5,7 @@ description: Verify mentions of Indian judgments and statutes, and check the key
 
 # Verify an Indian legal answer
 
-Assess the supplied answer, passage, or authority mentions. Ask for missing material only when needed. Send Bharat Law only relevant mentions, quotations, and claims. Separate authority existence from support for its attributed content.
+Assess the supplied answer, passage, or authority mentions. Send Bharat Law only relevant mentions, quotations, and claims. Separate authority existence from support for its attributed content.
 
 ## Find the authorities
 
@@ -14,7 +14,7 @@ Extract each material authority and claim, including court, Act, provision, juri
 - Judgments: `query`, `artifact_type: "judgement"`, and free-text `court`, such as `"Supreme Court"` or `"Delhi High Court"`. Use reliable identifying material; ask if an unresolved court distinction prevents lookup. Correct an unrecognized court using the returned allowed names.
 - Statutes: `query`, `artifact_type: "statute"`, and free-text `target`: statute, section, schedule, rule, regulation, notification, order, circular, or ordinance. Prefer the provision with its Act name; include jurisdiction and relevant legal date in the query. Do not send backend IDs.
 
-Search returns at most three matches as Markdown with canonical Bharat Law links. Compare parties, court, date, citation, Act and provision before choosing; refine identifying variants and distinguish alternatives. No match does not prove nonexistence. Routine search saves no work or conversation; it needs no `list_sources`, `request_key`, `conversation_ref`, polling, or workspace/case selection.
+Search returns at most three matches as Markdown with canonical Bharat Law links. Compare parties, court, date, citation, Act and provision before choosing; refine identifying variants and distinguish alternatives. No match does not prove nonexistence. Search saves nothing; it needs no `list_sources`, `request_key`, `conversation_ref`, polling, or workspace/case selection.
 
 ## Weigh the authority
 
@@ -23,6 +23,8 @@ Identify the user's forum (state/territory and court); ask only if it changes th
 Name each judgment's court and weight for the user's forum. Do not present persuasive authority alone as settled local practice. Within the same court, a larger bench prevails over a smaller one. Note an evidenced larger-bench reference without assuming it overrules existing law. Look up the original when an authority is cited only through a later case, and identify that indirect attribution.
 
 ## Examine the evidence
+
+Honor document-only scope; add public sources only when requested. For saved source evidence, use returned `evidence_ref`/`content_ref` as `read_content`'s `content_ref`, with `cursor` pagination.
 
 Judgment results contain details/headnotes; section results contain full section text. Other statute targets supply a title, description and link. Use `read_content(source_url)` with a returned canonical link for further text; pass `next_position` unchanged as `position` with the same URL to continue.
 
@@ -34,7 +36,7 @@ Missing text, denied access or unavailable historical wording leave findings unr
 
 ## Deliver the assessment
 
-Use [the assessment format](references/assessment-format.md): lead with corrections and unresolved points, then a compact table; use the detailed layout for an audit, an explicitly detailed table, or more than eight authorities. Separate identity, quotation, support, applicability and treatment. Mark content Supported, Partly supported, Contradicted, or Insufficient evidence, with its evidence basis and authority weight.
+Use [the assessment format](references/assessment-format.md): lead with corrections and unresolved points, then a compact table; use the detailed layout for an audit, an explicitly detailed table, or more than eight authorities. Separate identity, quotation, support, applicability and treatment. Mark content Supported, Partly supported, Contradicted, or Insufficient evidence, with evidence basis and authority weight.
 
 Link every authority supported or corrected beside its name using the canonical URL returned by `search` or `read_content`; never guess URLs. If no link was returned, say so. Report an unsuccessful lookup as "not found on Bharat Law", not nonexistence. Label external sources separately, preferring official court sources; never label them "verified on Bharat Law" or "confirmed". A news report cannot establish a judgment's holding. Preserve jurisdiction, date and coverage limits.
 
