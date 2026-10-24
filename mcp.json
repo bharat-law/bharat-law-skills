@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "bharat-law": {
+      "type": "streamable-http",
+      "url": "https://api.bharat.law/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "provided",
+              "clientId": "6s04rja4c7kfglfa19nd4b9oej",
+              "tokenEndpointAuthMethod": "none"
+            },
+            "authorizationUrl": "https://api.bharat.law/oauth/authorize",
+            "tokenUrl": "https://api.bharat.law/oauth/token",
+            "resource": "https://api.bharat.law/mcp",
+            "baseScopes": [
+              "openid",
+              "email",
+              "profile",
+              "bharat-law-mcp/read",
+              "bharat-law-mcp/run",
+              "bharat-law-mcp/draft",
+              "bharat-law-mcp/switch_workspace"
+            ],
+            "oidcEnabled": true,
+            "oidcConfigurationUrl": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_UQcc1Aq0k/.well-known/openid-configuration",
+            "oidcUserinfoEndpoint": "https://api.bharat.law/oauth/userinfo",
+            "oidcScopesSupported": [
+              "openid",
+              "email",
+              "profile"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

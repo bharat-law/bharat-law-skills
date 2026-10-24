@@ -1,0 +1,49 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "bharat-law",
+  "version": "0.1.5",
+  "description": "Verify Indian legal answers and citations, check recorded court hearings, and work with authorized Bharat Law cases and documents.",
+  "author": {
+    "name": "Bharat Technologies, Inc.",
+    "email": "support@bharat.law",
+    "url": "https://bharat.law"
+  },
+  "homepage": "https://bharat.law",
+  "repository": "https://github.com/bharat-law/bharat-law-skills",
+  "license": "MIT",
+  "keywords": [
+    "indian-law",
+    "legal-research",
+    "citations",
+    "court-hearings"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Bharat Law",
+        "shortDescription": "Indian legal research",
+        "longDescription": "Connect your existing Bharat Law account to research Indian law, verify legal answers and citations against available evidence, check recorded court hearings, and work with authorized cases, documents, and saved conversations. Guided skills help assess legal answers, citations, and recorded next hearings.\n\nLegal lookup does not save searches or create conversations. Judgment summaries can help assess legal claims, but exact quotations from the original judgment remain unresolved when only a summary is available. Statute checks rely on the source passages available for the requested provision. Research can save work in Bharat Law. Drafting and extended research can save additional documents and use existing account credits. Saved work follows workspace and case permissions. Switching the active workspace also changes the workspace selected in Bharat Law web and mobile apps.\n\nA Bharat Law account is required. Available features depend on permissions, entitlements, ready documents, credits, and source coverage. Court listings can change. Missing evidence and unknown legal treatment remain unresolved; outputs need qualified human review. Latest-order retrieval is not included.",
+        "developerName": "Bharat Technologies, Inc.",
+        "category": "Productivity",
+        "capabilities": [
+          "Research Indian law",
+          "Verify legal answers and citations",
+          "Check recorded hearings",
+          "Read authorized case documents",
+          "Generate saved drafts"
+        ],
+        "websiteURL": "https://bharat.law",
+        "supportURL": "https://github.com/bharat-law/bharat-law-skills/blob/release-chatgpt/docs/troubleshooting.md",
+        "privacyPolicyURL": "https://bharat.law/legal/privacy-policy",
+        "termsOfServiceURL": "https://bharat.law/legal/evaluation-terms",
+        "defaultPrompt": [
+          "Verify the Indian legal claims in this answer and show supporting or conflicting evidence.",
+          "Check this Indian judgment citation and the proposition beside it.",
+          "Find the recorded next hearing for my subscribed matter and show source freshness."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}
