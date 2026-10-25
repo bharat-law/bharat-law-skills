@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "bharat-law": {
+      "type": "http",
+      "url": "https://api.bharat.law/mcp"
+    }
+  }
+}
